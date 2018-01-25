@@ -1,0 +1,161 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background: #efefef;
+    margin: 0;
+}
+hr{
+    height: 0px;
+    border: none;
+    border-top: 1px solid #dedede;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+.clearfix::after{
+    content:'';
+    display: block;
+    clear: both;
+}
+.topNarBar{
+    padding: 20px 0px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+.topNarBar-inner{
+    padding: 0 16px;
+}
+.topNarBar nav{
+    padding-top: 7px;
+}
+.topNarBar nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.topNarBar nav ul li{
+    float: left;
+    margin-left: 17px;
+    margin-right: 17px;
+}
+.topNarBar nav ul li a{
+    font-size:12px;
+    color: #b7b7b7;
+    font-weight: bold;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: block;
+}
+.topNarBar nav ul li a:hover{
+    border-bottom: 3px solid #e06567;
+}
+.topNarBar .logo{
+    font-size: 24px;
+    font-family: "Arial Black";
+    padding-top: 3px;
+    padding-bottom: 4px;
+}
+.topNarBar .logo .rs{
+    margin-right: 4px;
+    color: #E6686A;
+}
+.topNarBar .logo .card{
+    color: #9A9DA2;
+}
+
+.banner{
+    background-image: url(../img/rs-cover.jpg);
+    height: 515px;
+    background-position: center center;
+    background-size: cover;
+}
+.banner .mask{
+    height: 515px;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.textCard{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+}
+.textCard .welcome{
+    background: #e6686a;
+    color: white;
+    display: inline-block;
+    padding: 4px 16px;
+    line-height: 22px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.textCard .profile .helloTriangle{
+    display: block;
+    border:10px solid transparent;
+    width:0px;
+    border-left-color:#e6686a;
+    border-top-width:0px;
+    position: absolute;
+    left: 5px;
+    top: 100%;
+}
+.textCard .picture{
+    float: left;
+}
+.textCard .profile{
+    float: left;
+    padding-left: 65px;
+    width: 470px;
+}
+.textCard .profile h1{
+    margin-top: 18px;
+    margin-bottom: 15px;
+}
+.textCard .profile hr{
+    margin: 20px 0px;
+}
+.textCard .textTop{
+    padding: 50px;
+}
+.textCard dl dt,
+.textCard dl dd{
+    float: left;
+    padding: 10px 0px;
+}
+.textCard dl dt{
+    width: 30%;
+    font-weight: bold;
+}
+.textCard dl dd{
+    width: 70%;
+    color: #9da0a7;
+}
+.textCard .textBootom .media{
+    background: #e6686a;
+    text-align: center;
+}
+.textCard .textBootom .media a{
+    display: inline-block;
+    width: 40px;
+    line-height: 30px;
+    padding: 5px 0px;
+    border-radius: 50%;
+    margin: 16px 10px;
+}
+.textCard .textBootom .media a:hover{
+    background: #cf5d5f;
+}
+.textCard .textBootom svg{
+    width: 30px;
+    height: 30px;
+    fill: white;
+
+    vertical-align: top;
+}

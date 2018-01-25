@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>yinyang</title>
+    <style>
+        body{
+            background: #DCDCDC;
+        }
+        .q{
+            margin:auto;
+            height:300px;
+            width: 300px;
+            left:50%;
+            top:50%;
+            position: absolute;
+            margin:-150px 0 0 -150px;
+        }
+        .a{
+            width: 112px;
+            height: 56px;
+            border:solid #ffffff;
+            border-radius: 50%;
+            position: relative;
+            border-width: 0px 0px 56px 0px;
+            background: black;
+            left:50%;
+            top:50%;
+            margin:-56px 0 0 -56px;
+        }
+        .a:before{
+            content: "";
+            position: absolute;
+            border:20px solid #ffffff;
+            width: 16px;
+            height:16px;
+            border-radius:50%;
+            top:28px;
+            background:#000000;
+        }
+
+        .a:after{
+            content: "";
+            position: absolute;
+            border:20px solid #000000;
+            width: 16px;
+            height:16px;
+            border-radius:50%;
+            right:0px;
+            top:28px;
+            background:#ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="q">
+<div class="a"></div>
+</div>
+</body>
+</html>
