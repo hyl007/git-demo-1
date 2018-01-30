@@ -8,7 +8,6 @@
             background: #DCDCDC;
         }
         .q{
-            margin:auto;
             height:300px;
             width: 300px;
             left:50%;
@@ -27,6 +26,8 @@
             left:50%;
             top:50%;
             margin:-56px 0 0 -56px;
+            animation: 3s linear infinite;
+            animation-name: slidein;
         }
         .a:before{
             content: "";
@@ -50,11 +51,20 @@
             top:28px;
             background:#ffffff;
         }
+        @keyframes slidein {
+            from {
+                transform:rotate(0deg);
+            }
+
+            to {
+                transform:rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
 <div class="q">
-<div class="a"></div>
+    <div class="a"></div>
 </div>
 </body>
 </html>

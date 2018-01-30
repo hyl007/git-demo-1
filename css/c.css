@@ -1,0 +1,305 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background: #efefef;
+}
+.clearfix::after{
+    content:'';
+    display: block;
+    clear: both;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+ul,ol{
+    list-style:none;
+}
+hr{
+    height: 0px;
+    border: none;
+    border-top: 1px solid #dedede;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+}
+
+
+.topBar{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 20px 0px;
+    width: 100%;
+}
+.topBa-innerr{
+    padding: 0px 16px;
+
+}
+.logo{
+    float: left;
+    font-size: 24px;
+    font-family: "Arial Black";
+    font-weight: bold;
+    padding-top: 3px;
+}
+.logo .logoRS{
+    color: #E6686A;
+}
+.logo .logoCard{
+    padding-left: 4px;
+    color: #9A9DA2;
+}
+.topBarRight{
+    float: right;
+    padding-top: 7px;
+}
+.topBarRight ul{
+    margin: 0px;
+    padding: 0px;
+}
+.topBarRight li{
+    float: left;
+    margin-left: 17px;
+    margin-right: 17px;
+
+}
+.topBarRight li a{
+    color: #b7b7b7;
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    padding-top: 8px;
+    padding-bottom: 5px;
+}
+.topBarRight li a:hover{
+    border-bottom: 3px solid #E6686A;
+}
+.banner{
+    background-image: url(../img/rs-cover.jpg);
+    height: 515px;
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.5);
+}
+.banner .mark{
+    height: 515px;
+    background-color: rgba(0,0,0,0.7);
+}
+
+
+.personalNews{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.2);
+    margin-top: -350px;
+}
+.personalTop{
+   padding: 50px 50px;
+}
+.picture{
+    float: left;
+}
+.Hello{
+    color: white;
+    background: #e6686a;
+    display: inline-block;
+    padding: 4px 15px;
+    position:relative;
+}
+.Triangle{
+    display: block;
+    border:10px solid transparent;
+    width:0px;
+    border-left-color:#e6686a;
+    border-top-width:0px;
+    position: absolute;
+    left: 5px;
+    top: 100%;
+}
+.personalCar{
+    float: left;
+    padding-left: 45px;
+}
+.personalNews .personalCar h1{
+    margin-top: 35px;
+}
+.personalNews .personalCar p{
+    margin: 10px 0px;
+}
+.personalNews .personalCar dl{
+    margin-top: 10px;
+
+}
+.personalNews .personalCar dd,
+.personalNews .personalCar dt {
+    float: left;
+    padding: 13px 0px;
+}
+.personalNews .personalCar dd{
+    width: 70%;
+    color: #9da0a7;
+}
+.personalNews .personalCar dt{
+    width: 30%;
+    font-weight: bold;
+}
+.bootom{
+    text-align: center;
+    background: #e6686a;
+}
+.bootom a{
+    display: inline-block;
+    border-radius: 50%;
+    width: 40px;
+    line-height: 30px;
+    padding: 5px 0px;
+    margin: 16px;
+
+}
+.bootom svg{
+    width: 30px;
+    height: 30px;
+    vertical-align: top;
+    fill: white;
+}
+.bootom a:hover{
+    background: #cf5d5f;
+}
+.buttonResume{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 35px;
+}
+#button{
+    display: inline-block;
+    border: 1px solid #cdcfd1;
+    padding: 20px 60px;
+    text-align: center;
+    border-radius: 2px;
+    color: #3d4451;
+    font-weight: bold;
+    transition: box-shadow 0.3s;
+}
+#button:hover{
+    box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.2);
+}
+.personalDescribe{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 40px;
+    line-height: 1.8;
+    font-family: FangSong;
+}
+.personalSkills,
+.works
+{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.personalSkills h2,
+.works h2{
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    margin-top: 50px;
+}
+.personalSkills ol{
+    background: white;
+    padding: 26px 30px 30px;
+    margin-top: 30px;
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+}
+.personalSkills h3{
+    font-size: 14px;
+    line-height: 1.1;
+    padding-bottom: 5px;
+}
+.personalSkills li{
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 20px 25px;
+}
+.skillsBar-a{
+    background: #fae1e1;
+    height: 5px;
+    border-radius: 2px;
+}
+.skillsBar-b{
+    background: #e6686a;
+    height: 100%;
+    width: 50%;
+    border-radius: 2px;
+}
+
+.works{
+    text-align: center;
+}
+.works nav{
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 30px;
+}
+.works ol{
+    display: inline-block;
+    vertical-align: top;
+
+}
+.works li{
+    float: left;
+    margin-left: 50px;
+    cursor: pointer;
+}
+.works li:nth-child(1){
+    margin-left: 0px;
+}
+
+.worksBar{
+    height: 5px;
+    background: white;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    border-radius: 2px;
+}
+.worksBar-inner{
+    height: 100%;
+    background: #e6686a;
+    border-radius: 2px;
+    transition: all 0.5s;
+
+}
+.a1 .worksBar-inner{
+    width: 32px;
+}
+.a2 .worksBar-inner{
+    width: 32px;
+    margin-left: 83px;
+}
+.a3 .worksBar-inner{
+    width: 93px;
+    margin-left: 162px;
+}
+
+.jobs{
+    position: relative;
+    margin-bottom: 60px;
+
+}
+.jobs .big,
+.jobs .small{
+    position: absolute;
+}
