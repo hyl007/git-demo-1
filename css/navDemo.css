@@ -1,0 +1,78 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background: grey url(../navDemo-img/wall2-min.jpg) no-repeat center center;
+    background-size: cover;
+}
+a{
+    text-decoration: none;
+}
+main{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+.zhangsan{
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 10px 0px 7px;
+}
+kbd{
+    display: inline-block;
+    text-transform: uppercase;
+    position: relative;
+}
+.kbdSet{
+    width: 50px;
+    height: 40px;
+    border: 1px solid #373737;
+    background: linear-gradient(to bottom, #292929 0%,#111111 100%);
+    color: #c5c5c5;
+    border-radius: 7px;
+    box-shadow: 0 0 0 1px #1a1b1c,0 0 0 2px #1f2020,0 3px 0 1px #080808;
+    margin: 0px 10px;
+    font-size: 16px;
+    position: relative;
+}
+
+.kbdSet .text{
+    position: absolute;
+    left: 4px;
+    top: 2px;
+}
+.kbdSet img{
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: 4px;
+    bottom: 2px;
+}
+.row{
+    margin: 16px;
+}
+
+kbd button{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    display: none;
+    font-size: 5px;
+    line-height: 8px;
+}
+kbd:hover > button{
+    display: inline-block;
+}
+.zhangsan div:nth-child(2){
+     margin-left: -25px;
+}
+.zhangsan div:nth-child(3){
+    margin-left: -100px;
+}
+
+
