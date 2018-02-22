@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body{
+
+            overflow: hidden;
+        }
+        ul,ol{
+            list-style: none;
+        }
+
+        #x{
+            background: white;
+        }
+
+        .actions{
+            position: fixed;
+            top: 3px;
+            left: 3px;
+        }
+        .actions svg{
+            width: 1.5em;
+            height: 1.5em;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+        .actions svg.action{
+            fill: red;
+            transform: scale(1.2);
+        }
+        .colors{
+            position: fixed;
+            top: 50px;
+            left: 10px;
+            padding-left: 0px;
+        }
+        .colors li{
+            width: 20px;
+            height: 20px;
+            margin: 10px 0px;
+            border-radius: 50%;
+            box-shadow: 0 0 2px 0 rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+        .colors li.action{
+            box-shadow: 0 0 2px 0 rgba(0,0,0,0.95);
+            transform: scale(1.2);
+        }
+        .colors .black{
+            background: black;
+        }
+        .colors .red{
+            background: red;
+        }
+        .colors .green{
+            background: green;
+        }
+        .colors .blue{
+            background: blue;
+        }
+        .sizes{
+            position: fixed;
+            top: 50px;
+            right: 10px;
+        }
+        .sizes .thin{
+            height: 0px;
+            width: 20px;
+            border-top: 4px solid black;
+            margin-bottom: 20px;
+        }
+        .sizes .thick{
+            height: 0px;
+            width: 20px;
+            border-top: 8px solid black;
+        }
+
+    </style>
+    <style type="text/css">
+        .icon {
+            width: 1em; height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<canvas id="x" height="400" width="400"></canvas>
+<div id="actions" class="actions">
+    <svg class="icon action" id="pen">
+        <use xlink:href="#icon-pen"></use>
+    </svg>
+    <svg class="icon" id="eraser">
+        <use xlink:href="#icon-eraser"></use>
+    </svg>
+    <svg class="icon" id="trashbin">
+        <use xlink:href="#icon-trashbin"></use>
+    </svg>
+    <svg class="icon" id="download">
+        <use xlink:href="#icon-download"></use>
+    </svg>
+</div>
+<ol class="colors">
+    <li id="black" class="black action">
+    <li id="red" class="red"></li>
+    <li id="green" class="green"></li>
+    <li id="blue" class="blue"></li>
+</ol>
+<ol class="sizes">
+    <li id="thin" class="thin"></li>
+    <li id="thick" class="thick"></li>
+</ol>
+
+
+<script>
+    var canvasId = document.getElementById('x')
+    var ctx = canvasId.getContext('2d')
+    autoGetCanvasSize(canvasId)//自动canvas设置宽高
+    listnToUser(canvasId)//监听用户
+    var usingEraser = false//判断状态
+    var lineWidth = 5
+    /*********/
+    //工具选择
+    pen.onclick = function(){
+        usingEraser=false
+        pen.classList.add('action')
+        eraser.classList.remove('action')
+    }
+    eraser.onclick = function(){
+        usingEraser = true
+        eraser.classList.add('action')
+        pen.classList.remove('action')
+    }
+    trashbin.onclick = function(){
+        ctx.clearRect(0,0,canvasId.width,canvasId.height);
+    }
+    download.onclick = function(){
+        var url = canvasId.toDataURL("img/png")
+        var a=document.createElement('a')
+        document.body.appendChild(a)
+        a.href =url
+        a.download = '我的画板'
+        a.target = '_blank'
+        a.click()
+
+    }
+    //画笔颜色
+    black.onclick = function(){
+        ctx.strokeStyle = 'black'
+        black.classList.add('action')
+        red.classList.remove('action')
+        green.classList.remove('action')
+        blue.classList.remove('action')
+    }
+    red.onclick = function(){
+        ctx.strokeStyle = 'red'
+        black.classList.remove('action')
+        red.classList.add('action')
+        green.classList.remove('action')
+        blue.classList.remove('action')
+    }
+    green.onclick = function(){
+        ctx.strokeStyle = 'green'
+        black.classList.remove('action')
+        red.classList.remove('action')
+        green.classList.add('action')
+        blue.classList.remove('action')
+    }
+    blue.onclick = function(){
+        ctx.strokeStyle = 'blue'
+        black.classList.remove('action')
+        red.classList.remove('action')
+        green.classList.remove('action')
+        blue.classList.add('action')
+    }
+    thin.onclick = function(){
+        lineWidth=4
+    }
+    thick.onclick = function(){
+        lineWidth=8
+    }
+
+    /*********/
+    //监听用户
+    function listnToUser(canvas){
+        var painting=false //判断状态
+        var lastpoint={x:undefined,y:undefined}
+        if(document.body.ontouchstart !== undefined){
+            //触摸开始
+            canvas.ontouchstart =function(a){
+                var x = a.touches[0].clientX
+                var y = a.touches[0].clientY
+                painting=true
+                if(usingEraser){
+                    ctx.clearRect(x-5,y-5,15,15)
+                }else{
+                    lastpoint={x:x,y:y}
+                    // setCircle(x,y,2)
+                }
+            }
+            canvas.ontouchmove =function(a){
+                var x = a.touches[0].clientX
+                var y = a.touches[0].clientY
+                if(!painting){
+                    return
+                }
+                if(usingEraser){
+                    ctx.clearRect(x-5,y-5,15,15)
+                }else{
+                    var newpoint={x:x,y:y}
+                    //setCircle(x,y,2)
+                    drawLine(lastpoint.x,lastpoint.y,newpoint.x,newpoint.y)//两个圆点的连线
+                    lastpoint=newpoint  //把最后的圆点给lastpoint
+                }
+            }
+            canvas.ontouchend =function(a){
+                painting=false
+            }
+        }else{
+            //鼠标按下
+            canvas.onmousedown = function(a){
+                var x = a.clientX
+                var y = a.clientY
+                painting=true
+                if(usingEraser){
+                    ctx.clearRect(x-5,y-5,15,15)
+                }else{
+                    lastpoint={x:x,y:y}
+                    //setCircle(x,y,2)
+                }
+            }
+            //鼠标移动
+            canvas.onmousemove = function(a){
+                var x = a.clientX
+                var y = a.clientY
+                if(!painting){
+                    return
+                }
+                if(usingEraser){
+                    ctx.clearRect(x-5,y-5,15,15)
+                }else{
+                    var newpoint={x:x,y:y}
+                    //setCircle(x,y,2)
+                    drawLine(lastpoint.x,lastpoint.y,newpoint.x,newpoint.y)//两个圆点的连线
+                    lastpoint=newpoint  //把最后的圆点给lastpoint
+                }
+            }
+            //鼠标松开
+            canvas.onmouseup = function(a){
+                painting=false
+            }
+        }
+    }
+
+
+    /*********/
+    //画线
+    function drawLine(x1,y1,x2,y2){
+        ctx.beginPath();
+        ctx.lineWidth=lineWidth
+        ctx.moveTo(x1,y1);
+        ctx.lineTo(x2,y2);
+        ctx.closePath();
+        ctx.stroke();
+    }
+    //画圆
+    function setCircle(x,y,r){
+        ctx.beginPath()
+        ctx.arc(x,y,r,0,Math.PI*2)
+        ctx.fill()
+    }
+    /*********/
+    //自动canvas设置宽高
+    function autoGetCanvasSize(canvas){
+        getCanvasSize()
+        window.onresize=function(){
+            getCanvasSize()
+        }
+        //获得canvas的宽高
+        function getCanvasSize(){
+            var pageWidth = document.documentElement.clientWidth
+            var pageHeight = document.documentElement.clientHeight
+            canvas.width = pageWidth
+            canvas.height = pageHeight
+        }
+    }
+
+
+</script>
+<script src="//at.alicdn.com/t/font_570166_rld84g3uqdzn0zfr.js"></script>
+</body>
+</html>
