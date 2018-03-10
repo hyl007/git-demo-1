@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+    .window{
+        width: 400px;
+        margin: 20px auto;
+        height: 300px;
+        overflow: hidden;
+    }
+    .images{
+        position: relative;
+    }
+    .images > img{
+        width: 100%;
+        transition: all 0.3s;
+        position: absolute;
+    }
+    .images > img.current{
+        left: 0;
+        transform: translateX(0);
+        z-index: 1;
+    }
+    .images > img.leave{
+        z-index: 1;
+        transform: translateX(-100%);
+    }
+    .images > img.enter{
+        transform: translateX(100%);
+    }
+
+</style>
+<body>
+<div class="window">
+    <div id="images" class="images">
+        <img src="img/1.jpg" alt="图片">
+        <img src="img/2.jpg" alt="图片">
+        <img src="img/3.jpg" alt="图片">
+        <img src="img/4.jpg" alt="图片">
+        <img src="img/5.jpg" alt="图片">
+    </div>
+</div>
+<script src="jquery-3.3.1.js"></script>
+<script>
+
+    let n
+    initial()
+    setInterval(function(){
+        makeLeave(getImage(n))
+        makeCurrent(getImage(n+1))
+        makeEnter(getImage(n+2))
+        n+=1
+    },3000)
+    /*************************************/
+    function initial(){
+        n=1
+        $('.images > img:nth-child(1)').addClass('current').siblings().addClass('enter')
+    }
+    function makeCurrent($node){
+        return $node.removeClass('enter leave').addClass('current')
+    }
+    function makeEnter($node){
+        return $node.removeClass('current leave').addClass('enter')
+    }
+    function makeLeave($node){
+        return $node.removeClass('current enter').addClass('leave')
+    }
+    function getImage(n){
+        return $(`.images > img:nth-child(${x(n)})`)
+    }
+    function imageLength(){
+        return $('.images').children().length
+    }
+    function x(n){
+        if(n>imageLength()){
+            n=n%imageLength()
+            if(n===0){
+                n=imageLength()
+            }
+        }
+        return n
+    }
+</script>
+
+</body>
+</html>
