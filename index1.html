@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h5>
+    你的余额为<span id="amount">&&&amount&&&</span>
+</h5>
+<button id="button">付款一块钱</button>
+
+<script>
+
+    button.addEventListener('click',function(e){
+        let script =document.createElement('script')
+        script.src='http://jack.com:8002/pay'
+        document.body.appendChild(script)
+        script.onload=function(e){
+            e.currentTarget.remove()
+        }
+        script.onerror= function(e){
+            alert('失败')
+            e.currentTarget.remove()
+        }
+    })
+</script>
+
+</body>
+</html>
