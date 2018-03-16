@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body{
+            background: #f2f2f2;
+
+        }
+        .wrapper{
+            border: 1px white solid;
+            box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+            width: 920px;
+            margin: 0px auto;
+            margin-top: 50px;
+            background: white;
+        }
+        .window{
+            width: 100%;
+            margin: 0px auto;
+            overflow: hidden;
+        }
+        .images{
+            display: flex;
+            width: 100%;
+            transition: all 0.6s;
+        }
+        .images >img{
+        }
+        .menu{
+            width: 920px;
+            margin:auto;
+            padding: 10px 0px;
+
+            text-align: center;
+            background: linear-gradient(90deg, rgba(100, 100, 100, 0) 0%, rgba(100, 100, 100, 0.2) 50%, rgba(100, 100, 100, 0) 100%);
+        }
+        .menu span{
+            display: inline-block;
+        }
+
+        .action-button
+        {
+            position: relative;
+            padding: 10px 25px;
+            margin: 4px 10px 0px 0px;
+            float: left;
+            border-radius: 10px;
+            font-family: 'Pacifico', cursive;
+            font-size: 25px;
+            color: #FFF;
+            text-decoration: none;
+        }
+
+        .blue
+        {
+            background-color: #f2f2f2;
+            border-bottom: 5px solid rgba(0, 0, 0,0.2);
+            text-shadow: 0px -2px #2980B9;
+        }
+
+        .red
+        {
+            background-color: #f2f2f2;
+            border-bottom: 5px solid rgba(0, 0, 0,0.2);
+            text-shadow: 0px -2px #BD3E31;
+        }
+
+        .green
+        {
+            background-color: #f2f2f2;
+            border-bottom: 5px solid rgba(0, 0, 0,0.2);
+            text-shadow: 0px -2px #669644;
+        }
+
+        .yellow
+        {
+            background-color: #f2f2f2;
+            border-bottom: 5px solid rgba(0, 0, 0,0.2);
+            text-shadow: 0px -2px #D1B358;
+        }
+
+        .action-button:active
+        {
+            transform: translate(0px,5px);
+            border-bottom: 1px solid;
+        }
+        .content1{
+            text-align: center;
+            margin-top: 50px;
+        }
+        .content1 p{
+            font-size: 40px;
+            padding-bottom: 20px;
+        }
+        .content1 h1{
+            font-size: 40px;
+        }
+        .content2{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div class="content1">
+    <p>Apple-like Gallery</p>
+    <h1>Slideshow</h1>
+</div>
+<div id="wrapper" class="wrapper">
+    <div id='window' class='window'>
+        <div id='images' class='images'>
+            <img src="img/macbook.jpg" width=920px alt="">
+            <img src="img/info.jpg" width=920px alt="">
+            <img src="img/iphone.jpg" width=920px alt="">
+            <img src="img/imac.jpg" width=920px alt="">
+        </div>
+    </div>
+</div>
+
+<div class="menu">
+    <span><a href="#" class="action-button shadow animate blue">一</a></span>
+    <span><a href="#" class="action-button shadow animate red">二</a></span>
+    <span><a href="#" class="action-button shadow animate green">三</a></span>
+    <span><a href="#" class="action-button shadow animate yellow">四</a></span>
+</div>
+<div class="content2">
+    <p>A wise choice</p>
+    <p>Mobile phone is the most convenient bridge between people and people</p>
+
+</div>
+
+<script>
+    var allButton=$('div>span')
+    for(let i=0;i<allButton.length;i++){
+        $(allButton[i]).on('click',function(x){
+            var index=$(x.currentTarget).index()
+            var q=index*-920
+            $('.images').css({transform:'translateX('+q+'px)'})
+        })
+    }
+
+</script>
+</body>
+</html>
