@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的简历</title>
+    <link rel="stylesheet" href="css/myResume.css">
+    <link rel="stylesheet" href="javascript/vendor/swiper/swiper.min.css">
+</head>
+<body>
+<!--Load animation-->
+<div id="welcomeYou" class="welcomeYou activeYou">
+    <div class="welcome-wrapper" id="particles-js"></div>
+    <div id="vintage__container" class="vintage__container">
+        <p class="vintage vintage__top">welcome</p>
+        <p class="vintage vintage__bot">welcome</p>
+    </div>
+</div>
+
+<!--Navigation bar-->
+<div id="topNarBar" class="topNarBar">
+    <div class="topNarBar-inner">
+        <a class="logo" href="#" alt="logo">
+            <span class="rs">HYL</span><span class="card">resume</span>
+        </a>
+        <nav class="menu">
+            <ul class="clearfix">
+                <li>
+                    <a href="#textCard">关于</a>
+                </li>
+                <li>
+                    <a href="#skills">技能</a>
+                </li>
+                <li>
+                    <a href="#portfolio">作品</a>
+                    <ul class="submenu">
+                        <li>作品1</li>
+                        <li>作品2</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#message">留言</a>
+                </li>
+
+            </ul>
+        </nav>
+
+    </div>
+
+</div>
+
+<div class="banner">
+    <div class="mask"></div>
+</div>
+<!--Personal information-->
+<main class="rentext">
+    <div data-x id="textCard" class="textCard">
+        <div class="textTop clearfix">
+            <div class="picture"><img src="img/ww.jpg" alt="头像">
+            </div>
+            <div class="profile">
+                <span class="welcome">Pick me<span class="helloTriangle"></span></span>
+                <h1>胡阳林</h1>
+                <p>前端开发工程师</p>
+                <hr>
+                <dl class="clearfix">
+                    <dt>年龄</dt>
+                    <dd>25</dd>
+                    <dt>性别</dt>
+                    <dd>男</dd>
+                    <dt>所在城市</dt>
+                    <dd>广州</dd>
+                    <dt>邮箱</dt>
+                    <dd>314773165@qq.com</dd>
+                    <dt>手机</dt>
+                    <dd>18378401191</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="introduce"><p>毕业于广西贺州学院，专业是计算机科学与技术(网络方向)，自学前端半年，目前找一份前端技术方面的工作,熟悉HTML5/CSS3、JavaScript、JQuery、Vue、node.js命令行。期待在3年内可以更深入学习前端方面的知识和横向的技术知识。</p></div>
+
+        <div class="textBootom">
+            <footer class="media">
+                <a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                </a>
+
+            </footer>
+        </div>
+    </div>
+    <p class="button-baoguo">
+        <a id="button" href="yinyang.html" target="_blank" download>下载 pdf 简历</a>
+    </p>
+</main>
+<!--skills-->
+<section data-x id="skills" class=" skills">
+    <h2>技能</h2>
+    <div class="graphBar" id="graphBar"></div>
+</section>
+
+<section data-x id="portfolio" class="portfolio">
+    <h2>作品集</h2>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <img src="img/city-min.jpg" class="swiper-slide">
+            <img src="img/draw-min.jpg" class="swiper-slide">
+            <img src="img/nav-min.jpg" class="swiper-slide">
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+</section>
+<!--message-->
+<section data-x id="message" class="message">
+    <h2>留言</h2>
+    <form id="postMessageForm" class="postMessageForm">
+        <label>姓名</label>
+        <input class="input-name" type="text" name="name">
+        <label class="message-content">内容</label>
+        <textarea type="text" name="content"></textarea>
+        <input class="input-button" type="submit"  value="提交">
+    </form>
+    <ol id="messageList">
+    </ol>
+</section>
+<!--external-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.6.1/av-min.js"></script>
+<script src="//at.alicdn.com/t/font_553183_kr9q6mq2jspds4i.js"></script>
+<script src="javascript/vendor/swiper/swiper.min.js"></script>
+<script src="javascript/vendor/echarts.min.js"></script><!--技能图-->
+<script src="javascript/vendor/particles.js"></script><!--粒子-->
+<script src="javascript/vendor/scrollreveal.min.js"></script>
+<!--模块化-->
+<script src="javascript/base/View.js"></script>
+<script src="javascript/base/Model.js"></script>
+<script src="javascript/base/Controller.js"></script>
+<script src="javascript/auto-slide-up.js"></script>
+<script src="javascript/sticky-topbar.js"></script>
+<script src="javascript/smooth-navAtion.js"></script>
+<script src="javascript/nav-slideLine.js"></script>
+<script src="javascript/init-swiper.js"></script>
+<script src="javascript/message.js"></script>
+<script src="javascript/particles-init.js"></script>
+<script src="javascript/init-Scrollreveal.js"></script>
+
+</body>
+</html>
